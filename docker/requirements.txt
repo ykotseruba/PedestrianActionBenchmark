@@ -1,0 +1,13 @@
+Pillow
+PyYAML
+scikit-image
+scikit-learn
+sklearn
+tqdm
+opencv-python
+wget
+pydot
+graphviz
+configobj
+pysqlite3
+matplotlib-venn

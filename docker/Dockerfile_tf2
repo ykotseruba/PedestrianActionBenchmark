@@ -1,0 +1,31 @@
+#FROM tensorflow/tensorflow:2.1.0-gpu-py3
+FROM tensorflow/tensorflow:latest-gpu
+
+ENV NVIDIA_VISIBLE_DEVICES\
+	${NVIDIA_VISIBLE_DEVICES:-all}
+
+ENV NVIDIA_DRIVER_CAPABILITIES\
+	${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+
+SHELL ["/bin/bash", "-c"]
+
+EXPOSE 6006 6007 6008
+ARG DEBIAN_FRONTEND=noninteractive
+RUN apt-get update&& apt-get install -y -q graphviz libgraphviz-dev \
+	vim \
+	gosu \
+	python-opencv \
+	g++ \
+	python-matplotlib \
+	gedit \
+	curl \
+	unzip \
+	git \
+	wget \
+	python-yaml \
+	libcanberra-gtk-module \	
+ 	libcanberra-gtk3-module
+
+COPY requirements.txt /
+RUN pip3 install -r ./requirements.txt
+
