@@ -57,7 +57,7 @@ For example, to train PCPA model run:
 python train_test.py -c config_files/PCPA.yaml
 ```
 
-The script will automatially save the trained model weights, configuration file and evaluation results in the `model/<model_name>/<current_date>/` folder.
+The script will automatially save the trained model weights, configuration file and evaluation results in `models/<dataset>/<model_name>/<current_date>/` folder.
 
 See comments in the `configs_default.yaml` and `action_predict.py` for parameter descriptions.
 
