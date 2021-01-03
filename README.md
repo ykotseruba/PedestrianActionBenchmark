@@ -32,10 +32,6 @@ Benchmark for evaluating pedestrian action prediction algorithms that inlcude co
 	docker/build_docker.sh -im <image_name> -t <tag>
 	```
 
-6. Get optical flow data
-
-	- Use [Flownet2](https://github.com/lmb-freiburg/flownet2) to generate optical flow for I3D.
-
 # Running instructions using Docker
 
 ## Run container in interactive mode:
@@ -45,60 +41,27 @@ Set paths for PIE and JAAD datasets in `docker/run_docker.sh` (see comments in t
 Then run:
 
 ```
-./docker/run_docker.sh
+docker/run_docker.sh
 ```
 
-### Train and test a model with default parameters
+### Train and test models
 
-Use `train_test.py` script with `model_name` and `dataset` arguments (see valid options below):
+Use `train_test.py` script with `config_file`:
 ```
-python train_test.py -m <model_name> -d <dataset>
+python train_test.py -c <config_file>
 ```
 
-For example, to train SFRNN model with default parameters on the JAAD dataset run:  
+For example, to train PCPA model run:  
 
 ```
-python train_test.py -c config_files/SFRNN.yaml -d jaad_all
+python train_test.py -c config_files/PCPA.yaml
 ```
 
 The script will automatially save the trained model weights, configuration file and evaluation results in the `model/<model_name>/<current_date>/` folder.
 
+See comments in the `configs_default.yaml` and `action_predict.py` for parameter descriptions.
 
-Command line argument options:
-
-`model_name`: 
-
-- ATGC
-- C3D
-- ConvLSTM_resnet50
-- ConvLSTM_vgg16
-- HierarchicalRNN
-- I3D (RGB only)
-- I3D_flow (optical flow)
-- MultiRNN
-- PCPA
-- SFRNN
-- SingleRNN_gru
-- SingleRNN_lstm
-- StackedRNN
-- Static_resnet50
-- Static_vgg16
-- Two_Stream
-
-`dataset`: 
-
-- pie
-- jaad\_beh (subset of JAAD containing pedestrian samples with behavioral annotations)
-- jaad\_all (the entire JAAD dataset)
-
-### Train and test a model with custom parameters
-
-Use `train_test.py` script with path to the YAML config file:
-```
-python train_test.py -c <path_to_config_file> -d <dataset>
-```
-
-Custom configuration file may overwrite default parameters specified in `config_files/configs_default.yaml`. See comments in the default config file and `action_predict.py` for parameter descriptions.
+Model-specific YAML files contain experiment options `exp_opts` that overwrite options in `configs_default.yaml`.
 
 ### Test saved model
 
@@ -107,6 +70,12 @@ To re-run test on the saved model use:
 ```
 python test_model.py <saved_files_path>
 ```
+
+For example:
+```
+python test_model.py models/jaad/PCPA/01Oct2020-07h21m33s/
+```
+
 <a name="citation"></a>
 ## Citation
 
@@ -122,7 +91,7 @@ If you use the results, analysis or code for the models presented in the paper, 
 }
 ```
 
-If you use model implementations, please cite the corresponding papers
+If you use model implementations provided in the benchmark, please cite the corresponding papers
 
 - ATGC [1] 
 - C3D [2]
