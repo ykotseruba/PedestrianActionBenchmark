@@ -81,6 +81,18 @@ For example:
 python test_model.py models/jaad/PCPA/01Oct2020-07h21m33s/
 ```
 
+## Authors
+
+* **[Iuliia Kotseruba](http://www.cse.yorku.ca/~yulia_k/)**
+* **[Amir Rasouli](http://www.cse.yorku.ca/~aras/index.html)**
+
+Please send email to yulia_k@eecs.yorku.ca or aras@eecs.yorku.ca if there are any problems with downloading or using the data.
+
+<a name="license"></a>
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
+
+
 <a name="citation"></a>
 ## Citation
 
