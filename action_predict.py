@@ -1173,6 +1173,7 @@ class C3D(ActionPredict):
 
     # TODO: use keras function to load weights
     def get_model(self, data_params):
+        os.makedirs(os.path.dirname(self._weights), exist_ok=True)
         if not os.path.exists(self._weights):
             weights_url = 'https://github.com/adamcasson/c3d/releases/download/v0.1/sports1M_weights_tf.h5'
             wget.download(weights_url, self._weights)
@@ -1235,7 +1236,8 @@ class I3D(ActionPredict):
             weights_url = 'https://github.com/dlpbc/keras-kinetics-i3d/releases/download/v0.2/rgb_inception_i3d_imagenet_and_kinetics_tf_dim_ordering_tf_kernels.h5'
             num_channels = 3
             self._weights='weights/i3d_rgb_weights.h5'
-
+            
+        os.makedirs(os.path.dirname(self._weights), exist_ok=True)
         if not os.path.exists(self._weights):
             wget.download(weights_url, self._weights)
         
@@ -1296,7 +1298,8 @@ class TwoStreamI3D(ActionPredict):
         else:
             weights_url = 'https://github.com/dlpbc/keras-kinetics-i3d/releases/download/v0.2/rgb_inception_i3d_imagenet_and_kinetics_tf_dim_ordering_tf_kernels.h5'
             num_channels = 3
-
+        
+        os.makedirs(os.path.dirname(self._weights), exist_ok=True)
         if not os.path.exists(self._weights):
             wget.download(weights_url, self._weights)
 
