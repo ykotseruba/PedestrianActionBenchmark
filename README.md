@@ -86,7 +86,7 @@ python test_model.py models/jaad/PCPA/01Oct2020-07h21m33s/
 * **[Iuliia Kotseruba](http://www.cse.yorku.ca/~yulia_k/)**
 * **[Amir Rasouli](http://www.cse.yorku.ca/~aras/index.html)**
 
-Please email yulia_k@eecs.yorku.ca or aras@eecs.yorku.ca if you have any issues with running the code or using the data.
+Please email yulia_k@eecs.yorku.ca or arasouli.ai@gmail.com if you have any issues with running the code or using the data.
 
 <a name="license"></a>
 ## License
