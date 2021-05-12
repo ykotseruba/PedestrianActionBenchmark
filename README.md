@@ -17,7 +17,7 @@ Benchmark for evaluating pedestrian action prediction algorithms that inlcude co
 
 2. Download Python data interface.
 
-	Copy `pie_data.py` and `jaad_data.py` from the corresponding repositories into `Ped_Cross_Benchmark` directory.
+	Copy `pie_data.py` and `jaad_data.py` from the corresponding repositories into `PedestrianActionBenchmark` directory.
 
 3. Install docker (see instructions for [Ubuntu 16.04](https://chunml.github.io/ChunML.github.io/project/Installing-NVIDIA-Docker-On-Ubuntu-16.04/) and [Ubuntu 20.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04)).
 
